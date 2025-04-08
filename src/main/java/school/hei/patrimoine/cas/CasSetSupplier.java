@@ -21,6 +21,6 @@ public class CasSetSupplier implements Supplier<CasSet> {
     var tianaCaseStudyEndDate = LocalDate.of(2026, 3, 31);
     var tianaCaseStudy = new TianaCaseStudy(caseStudyStartDate, tianaCaseStudyEndDate, Map.of(new Personne("Tiana"), 1.));
 
-    return new CasSet(Set.of(bakoCaseStudy), ariary(13_111_657));
+    return new CasSet(Set.of(tianaCaseStudy), ariary(54_780_821));
   }
 }

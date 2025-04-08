@@ -48,9 +48,6 @@ public class TianaCaseStudy extends Cas {
 
     @Override
     public Set<Possession> possessions() {
-                /*1. Un unique compte bancaire qui possède 60_000_000 Ar
-        2. Un terrain batî ayant une valeur marchande de 100_000_000 Ar à date, et qui s'apprécie de 10% tous les ans
-        3. Une dépense mensuelle de 4_000_000 Ar pour loger et nourir toute sa famille*/
         new FluxArgent("Monthly expense", bankAccount, caseStudyDate, caseStudyEndDate, 1, ariary(-4_000_000));
 
         /*Son prochain coup entrepreneurial est un projet de 6 mois du 1 juin 2025 au 31 décembre 2025 :
@@ -66,12 +63,8 @@ public class TianaCaseStudy extends Cas {
         var firstShareProfit = ariary((int)(70_000_000 * 0.1));
         var secondShareProfit = ariary((int)(70_000_000 * 0.9));
 
-        new FluxArgent("Project first share profit", bankAccount, firstShareProfitDate, firstShareProfitDate, 5, ariary(7_000_000));
-        new FluxArgent("Project first share profit", bankAccount, secondShareProfitDate, secondShareProfitDate, 5, ariary(63_000_000));
-
-
-        /*1. La banque lui prêtera 20_000_000 Ar le 27 juillet 2025
-        2. Tiana remboursera une mensualité de 2_000_000 Ar à compter du 27 août 2025 pendant 12 mois (soit un remboursement total de 24_000_000 Ar)*/
+        new FluxArgent("Project first share profit", bankAccount, projectStartDate, firstShareProfitDate, 5, firstShareProfit);
+        new FluxArgent("Project first share profit", bankAccount, projectStartDate, secondShareProfitDate, 5, secondShareProfit);
 
         var loanDateOfEffect = LocalDate.of(2025, 7, 27);
         var loanStartDateOfRepayment = LocalDate.of(2025, 8, 27);
